@@ -55,8 +55,6 @@
       padding: 10px;
       margin-top: 30px;
     }
-
-    /* Адаптация под маленькие экраны */
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
@@ -78,12 +76,7 @@
     <h1>Каталог упражнений и игр по физкультуре</h1>
   </header>
 
-  <nav>
-    <a href="index.html">Главная</a>
-    <a href="exercises.html">Упражнения</a>
-    <a href="games.html">Игры</a>
-    <a href="feedback.html">Обратная связь</a>
-  </nav>
+  <div id="nav-container"></div>
 
   <main>
     <section>
@@ -101,6 +94,17 @@
   <footer>
     &copy; 2025 Каталог по физкультуре
   </footer>
+
+  <script>
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Ошибка загрузки навигации:', error);
+      });
+  </script>
 
 </body>
 </html>
