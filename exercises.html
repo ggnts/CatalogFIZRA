@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Каталог упражнений по физкультуре</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f0f8ff;
+      color: #222;
+    }
+
+    header, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 15px;
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #005f99;
+    }
+
+    .exercise {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #00509e;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #007acc;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    input[type="text"] {
+      border: 2px solid #007acc;
+      border-radius: 4px;
+    }
+
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+
+    #toTop:hover {
+      background-color: #005f99;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      input[type="text"] {
+        width: 90%;
+        font-size: 14px;
+      }
+
+      .exercise {
+        padding: 12px;
+        font-size: 15px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      button {
+        width: 90%;
+        margin: 5px auto;
+        display: block;
+        font-size: 16px;
+      }
+
+      #toTop {
+        right: 10px;
+        bottom: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Каталог упражнений по физкультуре</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="exercises.html">Упражнения</a>
+    <a href="#">Игры</a>
+    <a href="#">Обратная связь</a>
+  </nav>
+
+  <!-- Поиск -->
+  <div style="text-align:center; margin: 20px;">
+    <input type="text" id="searchInput" placeholder="Поиск упражнения..." style="padding: 10px; width: 60%; font-size: 16px;" onkeyup="searchExercises()">
+  </div>
+
+  <!-- Фильтры -->
+  <div style="text-align:center; margin-bottom: 20px;">
+    <button onclick="filterCategory('all')" style="margin: 0 5px;">Все</button>
+    <button onclick="filterCategory('warmup')" style="margin: 0 5px;">Разминка</button>
+    <button onclick="filterCategory('strength')" style="margin: 0 5px;">Силовые</button>
+    <button onclick="filterCategory('stretch')" style="margin: 0 5px;">Растяжка</button>
+    <button onclick="filterCategory('balance')" style="margin: 0 5px;">Баланс</button>
+  </div>
+
+  <main>
+
+    <!-- Разминка -->
+    <div class="exercise warmup">
+      <h2>Повороты головы</h2>
+      <p>Медленные повороты головы влево и вправо. Разогревает шею и улучшает подвижность шейных позвонков.</p>
+    </div>
+    <div class="exercise warmup">
+      <h2>Круговые вращения тазом</h2>
+      <p>Улучшает подвижность поясничного отдела, подготавливает тело к активности.</p>
+    </div>
+    <div class="exercise warmup">
+      <h2>Махи ногами вперёд-назад</h2>
+      <p>Активизирует мышцы бедра и таза, выполняется плавно, стоя у опоры.</p>
+    </div>
+
+    <!-- Силовые -->
+    <div class="exercise strength">
+      <h2>Отжимания от пола</h2>
+      <p>Классическое упражнение на грудные мышцы, плечи и трицепсы. Можно выполнять с колен для упрощения.</p>
+    </div>
+    <div class="exercise strength">
+      <h2>Выпады вперёд</h2>
+      <p>Отлично развивает силу и координацию. Делается поочерёдно каждой ногой.</p>
+    </div>
+    <div class="exercise strength">
+      <h2>Подъём таза лёжа</h2>
+      <p>Активизирует ягодичные мышцы и поясницу. Выполняется лёжа на спине, колени согнуты.</p>
+    </div>
+    <div class="exercise strength">
+      <h2>Приседания</h2>
+      <p>Базовое упражнение для тренировки ног и ягодиц. Важно держать спину прямо и не выводить колени за носки.</p>
+    </div>
+
+    <!-- Растяжка -->
+    <div class="exercise stretch">
+      <h2>Растяжка передней поверхности бедра</h2>
+      <p>Стоя на одной ноге, притянуть другую пятку к ягодице. Держать равновесие и тянуть мышцу без боли.</p>
+    </div>
+    <div class="exercise stretch">
+      <h2>Наклоны в стороны</h2>
+      <p>Стоя, тянуться поочерёдно влево и вправо. Укрепляет косые мышцы живота и развивает гибкость.</p>
+    </div>
+    <div class="exercise stretch">
+      <h2>Поза "бабочка"</h2>
+      <p>Сидя, соединить стопы вместе, колени тянуть вниз к полу. Хорошо тянет внутреннюю поверхность бедра.</p>
+    </div>
+
+    <!-- Баланс и координация -->
+    <div class="exercise balance">
+      <h2>Стояние на одной ноге с закрытыми глазами</h2>
+      <p>Развивает вестибулярный аппарат и координацию движений.</p>
+    </div>
+    <div class="exercise balance">
+      <h2>Прыжки на одной ноге</h2>
+      <p>Тренируют равновесие, силу ног и выносливость. Выполняются поочерёдно на каждой ноге.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Каталог по физкультуре
+  </footer>
+
+  <button id="toTop" title="Наверх">↑ Наверх</button>
+
+  <script>
+    function searchExercises() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let exercises = document.getElementsByClassName("exercise");
+      for (let i = 0; i < exercises.length; i++) {
+        let title = exercises[i].getElementsByTagName("h2")[0];
+        let text = title.textContent || title.innerText;
+        if (text.toLowerCase().indexOf(input) > -1) {
+          exercises[i].style.display = "";
+        } else {
+          exercises[i].style.display = "none";
+        }
+      }
+    }
+
+    function filterCategory(category) {
+      let exercises = document.getElementsByClassName('exercise');
+      for (let i = 0; i < exercises.length; i++) {
+        if (category === 'all') {
+          exercises[i].style.display = '';
+        } else if (exercises[i].classList.contains(category)) {
+          exercises[i].style.display = '';
+        } else {
+          exercises[i].style.display = 'none';
+        }
+      }
+    }
+
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 200) {
+        toTop.style.display = 'block';
+      } else {
+        toTop.style.display = 'none';
+      }
+    });
+
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

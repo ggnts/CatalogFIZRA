@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог упражнений по физкультуре</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background: #0b5394;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #3874c8;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .authors {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #555;
+      text-align: center;
+    }
+    footer {
+      background: #0b5394;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    /* Адаптация под маленькие экраны */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+      }
+      nav a {
+        font-size: 16px;
+      }
+      section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Каталог упражнений и игр по физкультуре</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="exercises.html">Упражнения</a>
+    <a href="games.html">Игры</a>
+    <a href="#">Обратная связь</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Добро пожаловать!</h2>
+      <p>Этот сайт содержит подборку упражнений и подвижных игр для уроков физической культуры. Каталог будет постоянно пополняться и обновляться.</p>
+      
+      <div class="authors">
+        <p><strong>Разработано студентами:</strong></p>
+        <p>Семенихин Илья Иванович (Семенихин И.И.)</p>
+        <p>Лукичёв Ярослав Иванович (Лукичёв Я.И.)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Каталог по физкультуре
+  </footer>
+
+</body>
+</html>

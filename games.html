@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Игры по физкультуре</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f0f8ff;
+      color: #222;
+    }
+
+    header, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 15px;
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #005f99;
+    }
+
+    .game {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #00509e;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #007acc;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    input[type="text"] {
+      border: 2px solid #007acc;
+      border-radius: 4px;
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .filters {
+      text-align: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      margin: 5px 5px;
+    }
+
+    #toTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #toTopBtn:hover {
+      background-color: #005f99;
+    }
+
+    /* Медиа-запрос: стили для экранов до 768px (планшеты и телефоны) */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      input[type="text"] {
+        width: 90%;
+      }
+
+      button {
+        width: 90%;
+        max-width: 300px;
+        margin: 5px auto;
+        display: block;
+      }
+
+      .filters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .filters button {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      body {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Каталог игр по физкультуре</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="exercises.html">Упражнения</a>
+    <a href="games.html">Игры</a>
+    <a href="#">Обратная связь</a>
+  </nav>
+
+  <input type="text" id="searchInput" placeholder="Поиск игры..." onkeyup="searchGames()" />
+
+  <div class="filters">
+    <button onclick="filterCategory('all')">Все</button>
+    <button onclick="filterCategory('team')">Командные</button>
+    <button onclick="filterCategory('individual')">Индивидуальные</button>
+  </div>
+
+  <main>
+    <div class="game team">
+      <h2>Эстафета</h2>
+      <p>Командная игра на скорость и координацию, где игроки по очереди выполняют бег с передачей эстафетной палочки.</p>
+    </div>
+    <div class="game individual">
+      <h2>Прыжки через скакалку</h2>
+      <p>Игра для развития выносливости и ритма. Игроки по очереди прыгают через скакалку, увеличивая темп.</p>
+    </div>
+    <div class="game team">
+      <h2>Футбол</h2>
+      <p>Командная игра с мячом, развивающая ловкость, быстроту реакции и командную работу.</p>
+    </div>
+    <div class="game team">
+      <h2>Волейбол</h2>
+      <p>Командная игра, в которой цель — перебросить мяч через сетку и не дать ему упасть на своей стороне.</p>
+    </div>
+    <div class="game individual">
+      <h2>Скакалка двойной прыжок</h2>
+      <p>Индивидуальное упражнение для развития координации и скорости прыжков.</p>
+    </div>
+    <div class="game team">
+      <h2>Баскетбол</h2>
+      <p>Командная игра с мячом, направленная на броски мяча в корзину соперника.</p>
+    </div>
+    <div class="game individual">
+      <h2>Лёгкая атлетика (бег на 100 м)</h2>
+      <p>Индивидуальный забег на короткую дистанцию для развития скорости и выносливости.</p>
+    </div>
+    <div class="game team">
+      <h2>Тег (догонялки)</h2>
+      <p>Активная командная игра на ловкость, где нужно избежать касания "ведущего".</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Каталог по физкультуре
+  </footer>
+
+  <button id="toTopBtn" onclick="scrollToTop()">Наверх</button>
+
+  <script>
+    function searchGames() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const games = document.getElementsByClassName("game");
+      for (let i = 0; i < games.length; i++) {
+        const title = games[i].getElementsByTagName("h2")[0].textContent.toLowerCase();
+        if (title.indexOf(input) > -1) {
+          games[i].style.display = "";
+        } else {
+          games[i].style.display = "none";
+        }
+      }
+    }
+
+    function filterCategory(category) {
+      const games = document.getElementsByClassName("game");
+      for (let i = 0; i < games.length; i++) {
+        if (category === "all") {
+          games[i].style.display = "";
+        } else if (games[i].classList.contains(category)) {
+          games[i].style.display = "";
+        } else {
+          games[i].style.display = "none";
+        }
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      const btn = document.getElementById("toTopBtn");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>

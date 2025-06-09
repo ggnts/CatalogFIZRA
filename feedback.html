@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Обратная связь</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f0f8ff;
+      color: #222;
+    }
+    header, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 15px;
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #005f99;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 2px solid #007acc;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    button {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+    #thankyou-message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+      display: none;
+    }
+
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
+      body {
+        margin: 10px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      button {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px auto;
+        display: block;
+      }
+
+      form {
+        width: 95%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Обратная связь</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="exercises.html">Упражнения</a>
+    <a href="games.html">Игры</a>
+    <a href="feedback.html">Обратная связь</a>
+  </nav>
+
+  <form id="feedbackForm" action="https://formspree.io/f/xovwelzy" method="POST">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Сообщение:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Отправить</button>
+  </form>
+
+  <div id="thankyou-message">Спасибо за ваше сообщение!</div>
+
+  <footer>
+    &copy; 2025 Каталог по физкультуре
+  </footer>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const thankYouMessage = document.getElementById('thankyou-message');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+          form.reset();
+        } else {
+          alert('Ошибка отправки формы. Попробуйте позже.');
+        }
+      } catch (error) {
+        alert('Ошибка сети. Попробуйте позже.');
+      }
+    });
+  </script>
+
+</body>
+</html>
